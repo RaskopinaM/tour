@@ -2,9 +2,12 @@ import { useForm } from "react-hook-form";
 import React from "react";
 import style from "./form.module.css"
 import axios from "axios";
+import emailjs from '@emailjs/browser';
 
 
 export default function Form(){
+
+
 
     const { register, handleSubmit, formState:{errors} } = useForm();
     const onSubmit = (data) => {
@@ -24,6 +27,7 @@ export default function Form(){
                             maxLength: 50,
                             pattern: /^[А-Яа-я]+$/i  
                         })}
+                        
                      type="text"
                      className="form-control"
                      placeholder="Фамилия"
@@ -86,6 +90,7 @@ export default function Form(){
                      type="text"
                      className="form-control"
                      placeholder="Email"
+                   
                     />
                 </div>
                 {errors?.email?.type === "required" &&(
